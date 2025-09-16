@@ -1,0 +1,145 @@
+"""
+# SMS Spam Classification Project Outline
+
+## 1. Project Overview
+- **Objective**: Implement and compare two machine learning classifiers (k-Nearest Neighbors and Naive Bayes) for SMS spam detection
+- **Dataset**: SMS Spam Collection v.1 (5,574 messages: 4,827 ham, 747 spam)
+- **Format**: Tab-separated values with label (ham/spam) and message text
+
+## 2. Data Preprocessing & Tokenization
+### 2.1 Data Loading
+- Read the `SMSSpamCollection` file
+- Parse tab-separated format (label, message)
+- Handle encoding and special characters
+
+### 2.2 Text Preprocessing & Tokenization
+- **Basic Tokenization**: Split messages into space-separated words
+- **Text Cleaning Strategies**:
+  - Convert to lowercase
+  - Remove punctuation and special characters
+  - Handle contractions and abbreviations
+  - Remove stop words (optional)
+  - Stemming/lemmatization (optional)
+
+### 2.3 Train-Test Split
+- Split dataset into training and testing subsets
+- Maintain class distribution (stratified split)
+- Typical split: 80% train, 20% test
+
+## 3. Feature Engineering
+### 3.1 TF-IDF Vectorization (for k-NN)
+- **Step 1**: Identify unique terms in training set
+- **Step 2**: Calculate Inverse Document Frequency (IDF) for each term
+- **Step 3**: Calculate Term Frequency (TF) for each sample
+- **Step 4**: Compute TF-IDF vectors for both train and test sets
+- **Reference**: http://www.tfidf.com/
+
+### 3.2 Feature Selection (Optional)
+- Remove low-frequency terms
+- Remove high-frequency terms (stop words)
+- Dimensionality reduction techniques
+
+## 4. Model Implementation
+
+### 4.1 k-Nearest Neighbors (k-NN) Classifier
+- **Algorithm**:
+  - Convert SMS samples to TF-IDF numerical vectors
+  - Calculate distances between test samples and all training samples
+  - Find k nearest neighbors for each test sample
+  - Predict label based on majority vote of k neighbors
+- **Parameters to tune**:
+  - Value of k (number of neighbors)
+  - Distance metric (Euclidean, Manhattan, etc.)
+
+### 4.2 Multinomial Naive Bayes Classifier
+- **Algorithm**:
+  - Calculate P(Spam) from training data
+  - Calculate P(w|Spam) for each word in vocabulary
+  - Calculate P(w|Ham) for each word in vocabulary
+  - Apply Bayes' theorem: P(Spam|W) = P(Spam) × ∏P(wi|Spam)
+  - Compare P(Spam|W) vs P(Ham|W) for prediction
+- **Implementation details**:
+  - Handle zero probabilities (Laplace smoothing)
+  - Log-space calculations for numerical stability
+
+## 5. Model Evaluation & Performance Metrics
+
+### 5.1 Confusion Matrix Components
+- **True Positive (TP)**: Correctly classified spam messages
+- **False Positive (FP)**: Incorrectly classified ham as spam
+- **True Negative (TN)**: Correctly classified ham messages
+- **False Negative (FN)**: Incorrectly classified spam as ham
+
+### 5.2 Performance Metrics
+- **Accuracy**: (TP + TN) / (TP + FP + TN + FN)
+- **Precision**: TP / (TP + FP)
+- **Recall**: TP / (TP + FN)
+- **F1-Score**: (2 × Precision × Recall) / (Precision + Recall)
+
+### 5.3 Additional Analysis
+- Cross-validation for robust evaluation
+- Learning curves
+- Feature importance analysis
+- Error analysis (misclassified examples)
+
+## 6. Implementation Structure
+
+### 6.1 Code Organization
+```
+MLASSIGNMENT1/
+├── Assignment1.py (main implementation)
+├── data_preprocessing.py
+├── feature_engineering.py
+├── models/
+│   ├── knn_classifier.py
+│   └── naive_bayes_classifier.py
+├── evaluation/
+│   ├── metrics.py
+│   └── visualization.py
+└── utils/
+    ├── text_processing.py
+    └── data_loader.py
+```
+
+### 6.2 Key Functions to Implement
+- `load_data()`: Load and parse SMS dataset
+- `tokenize_text()`: Text preprocessing and tokenization
+- `calculate_tfidf()`: TF-IDF feature extraction
+- `knn_classifier()`: k-NN implementation
+- `naive_bayes_classifier()`: Naive Bayes implementation
+- `evaluate_model()`: Calculate performance metrics
+- `plot_results()`: Visualization of results
+
+## 7. Expected Deliverables
+
+### 7.1 Code Implementation
+- Complete working implementation of both classifiers
+- Proper data preprocessing pipeline
+- Comprehensive evaluation framework
+- Well-documented code with comments
+
+### 7.2 Results & Analysis
+- Performance comparison between k-NN and Naive Bayes
+- Analysis of different preprocessing strategies
+- Discussion of results and model behavior
+- Recommendations for improvement
+
+### 7.3 Documentation
+- README with setup instructions
+- Code documentation
+- Results summary and interpretation
+
+## 8. Technical Considerations
+
+### 8.1 Challenges
+- Class imbalance (86.6% ham, 13.4% spam)
+- Short text messages with limited context
+- Informal language and abbreviations
+- High-dimensional sparse feature vectors
+
+### 8.2 Optimization Opportunities
+- Hyperparameter tuning for k-NN
+- Feature selection and dimensionality reduction
+- Ensemble methods
+- Advanced text preprocessing techniques
+"""
