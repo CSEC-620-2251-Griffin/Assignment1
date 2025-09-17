@@ -2,7 +2,7 @@
 
 A machine learning project that implements SMS spam detection using k-Nearest Neighbors (k-NN) and Naive Bayes classifiers. The project is built from scratch without using scikit-learn or other third-party ML libraries, implementing all algorithms manually.
 
-## 📋 Project Overview
+##  Project Overview
 
 This project classifies SMS messages as either "ham" (legitimate) or "spam" using two different machine learning approaches:
 
@@ -224,7 +224,7 @@ The project uses only Python standard library modules for core functionality:
   - Implementing sparse matrix representations
   - Using feature selection to reduce vocabulary size
 
-## 📚 Technical Implementation
+##  Technical Implementation
 
 ### Data Processing Pipeline
 
@@ -263,4 +263,5 @@ If you encounter any issues:
 4. Check Python version compatibility (3.7+)
 
 ---
+
 
