@@ -1,75 +1,268 @@
-SMS Spam Collection v.1
--------------------------
+# SMS Spam Classification Project
 
-1. DESCRIPTION
---------------
+A machine learning project that implements SMS spam detection using k-Nearest Neighbors (k-NN) and Naive Bayes classifiers. The project is built from scratch without using scikit-learn or other third-party ML libraries, implementing all algorithms manually.
 
-The SMS Spam Collection v.1 (hereafter the corpus) is a set of SMS tagged messages that have been collected for SMS Spam research. It contains one set of SMS messages in English of 5,574 messages, tagged acording being ham (legitimate) or spam. 
+## 📋 Project Overview
 
-1.1. Compilation
-----------------
+This project classifies SMS messages as either "ham" (legitimate) or "spam" using two different machine learning approaches:
 
-This corpus has been collected from free or free for research sources at the Web:
+- **k-Nearest Neighbors (k-NN)**: Instance-based learning algorithm
+- **Multinomial Naive Bayes**: Probabilistic classifier based on Bayes' theorem
 
-- A collection of between 425 SMS spam messages extracted manually from the Grumbletext Web site. This is a UK forum in which cell phone users make public claims about SMS spam messages, most of them without reporting the very spam message received. The identification of the text of spam messages in the claims is a very hard and time-consuming task, and it involved carefully scanning hundreds of web pages. The Grumbletext Web site is: http://www.grumbletext.co.uk/
-- A list of 450 SMS ham messages collected from Caroline Tag's PhD Theses available at http://etheses.bham.ac.uk/253/1/Tagg09PhD.pdf
-- A subset of 3,375 SMS ham messages of the NUS SMS Corpus (NSC), which is a corpus of about 10,000 legitimate messages collected for research at the Department of Computer Science at the National University of Singapore. The messages largely originate from Singaporeans and mostly from students attending the University. These messages were collected from volunteers who were made aware that their contributions were going to be made publicly available. The NUS SMS Corpus is avalaible at: http://www.comp.nus.edu.sg/~rpnlpir/downloads/corpora/smsCorpus/
-- The amount of 1,002 SMS ham messages and 322 spam messages extracted from the SMS Spam Corpus v.0.1 Big created by Jos� Mar�a G�mez Hidalgo and public available at: http://www.esp.uem.es/jmgomez/smsspamcorpus/
+### Key Features
 
+- ✅ **No Third-Party ML Libraries**: All algorithms implemented from scratch
+- ✅ **Progress Tracking**: Real-time progress bars and time estimation
+- ✅ **Comprehensive Visualizations**: Confusion matrices, metrics comparison, and class distribution
+- ✅ **Reproducible Results**: Fixed random seeds ensure consistent outputs
+- ✅ **Performance Metrics**: Accuracy, Precision, Recall, F1-Score analysis
 
-1.2. Statistics
----------------
+## 🚀 Quick Start
 
-There is one collection:
+### Prerequisites
 
-- The SMS Spam Collection v.1 (text file: smsspamcollection) has a total of 4,827 SMS legitimate messages (86.6%) and a total of 747 (13.4%) spam messages.
+- Python 3.7 or higher
+- pip (Python package installer)
 
+### Installation
 
-1.3. Format
------------
+1. **Clone or download the project**
+   ```bash
+   # If using git
+   git clone <repository-url>
+   cd MLASSIGNMENT1
+   
+   # Or simply download and extract the project folder
+   ```
 
-The files contain one message per line. Each line is composed by two columns: one with label (ham or spam) and other with the raw text. Here are some examples:
+2. **Install required dependencies**
+   ```bash
+   pip install tqdm matplotlib numpy
+   ```
 
-ham   What you doing?how are you?
-ham   Ok lar... Joking wif u oni...
-ham   dun say so early hor... U c already then say...
-ham   MY NO. IN LUTON 0125698789 RING ME IF UR AROUND! H*
-ham   Siva is in hostel aha:-.
-ham   Cos i was out shopping wif darren jus now n i called him 2 ask wat present he wan lor. Then he started guessing who i was wif n he finally guessed darren lor.
-spam   FreeMsg: Txt: CALL to No: 86888 & claim your reward of 3 hours talk time to use from your phone now! ubscribe6GBP/ mnth inc 3hrs 16 stop?txtStop
-spam   Sunshine Quiz! Win a super Sony DVD recorder if you canname the capital of Australia? Text MQUIZ to 82277. B
-spam   URGENT! Your Mobile No 07808726822 was awarded a L2,000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9758 BOX95QU
+3. **Verify the dataset is present**
+   ```bash
+   ls -la SMSSpamCollection
+   ```
+   The `SMSSpamCollection` file should be present in the project directory.
 
-Note: messages are not chronologically sorted.
+### Running the Project
 
+Simply execute the main script:
 
-2. USAGE
---------
+```bash
+python Assignment1.py
+```
 
-We offer a comprehensive study of this corpus in the following paper that is under review. This work presents a number of statistics, studies and baseline results for several machine learning methods.
+## 📁 Project Structure
 
-[1] Almeida, T.A., G�mez Hidalgo, J.M., Yamakami, A. Contributions to the study of SMS Spam Filtering: New Collection and Results. Proceedings of the 2011 ACM Symposium on Document Engineering (ACM DOCENG'11), Mountain View, CA, USA, 2011. (Under review)
+```
+MLASSIGNMENT1/
+├── Assignment1.py              # Main execution file
+├── SMSSpamCollection          # SMS dataset
+├── README.md                  # This file
+├── utils/
+│   ├── data_loader.py         # Data loading utilities
+│   └── text_processing_clean.py # Text tokenization (sklearn-free)
+├── models/
+│   ├── knn_classifier.py      # k-NN implementation
+│   └── naive_bayes_classifier.py # Naive Bayes implementation
+├── evaluation/
+│   ├── metrics.py             # Performance metrics calculation
+│   └── visualization.py       # Plotting utilities
+├── data_preprocessing.py      # Train-test splitting
+├── feature_engineering.py     # TF-IDF vectorization
+└── Generated Outputs/
+    ├── confusion_matrices.png
+    ├── metrics_comparison.png
+    └── class_distribution.png
+```
 
+## �� Expected Output
 
-3. ABOUT
---------
+The program will display:
 
-The corpus has been collected by Tiago Agostinho de Almeida (http://www.dt.fee.unicamp.br/~tiago) and Jos� Mar�a G�mez Hidalgo (http://www.esp.uem.es/jmgomez).
+1. **Data Loading**: Dataset statistics and class distribution
+2. **Text Processing**: Tokenization progress with vocabulary size
+3. **Data Splitting**: Train-test split analysis
+4. **Feature Engineering**: TF-IDF vector creation
+5. **Model Training**: Progress bars for both classifiers
+6. **Model Evaluation**: Performance metrics for each model
+7. **Model Comparison**: Side-by-side performance comparison
+8. **Visualizations**: Three generated plots
+9. **Timing Summary**: Execution time breakdown
 
-We would like to thank Dr. Min-Yen Kan (http://www.comp.nus.edu.sg/~kanmy/) and his team for making the NUS SMS Corpus available. See: http://www.comp.nus.edu.sg/~rpnlpir/downloads/corpora/smsCorpus/. He is currently collecting a bigger SMS corpus at: http://wing.comp.nus.edu.sg:8080/SMSCorpus/
+### Sample Output
+```
+================================================================================
+SMS SPAM CLASSIFICATION PROJECT
+================================================================================
 
-4. LICENSE/DISCLAIMER
----------------------
+1. LOADING AND PREPROCESSING DATA
+--------------------------------------------------
+✓ Loaded 5574 messages
+✓ Ham: 4827 (86.6%)
+✓ Spam: 747 (13.4%)
+⏱️  Data loading completed in 0.0s
 
-We would appreciate if:
+2. TOKENIZING TEXT
+--------------------------------------------------
+Tokenizing: 100%|█████████████████████████████████████| 5574/5574 [00:00<00:00, 209713.32msg/s]
+✓ Tokenized 5574 messages
+✓ Vocabulary size: 8753
+⏱️  Tokenization completed in 0.0s
 
-- In case you find this corpus useful, please make a reference to previous paper and the web page: http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/ in your papers, research, etc.
-- Send us a message to tiago@dt.fee.unicamp.br in case you make use of the corpus.
+[... continues with detailed progress ...]
 
-The SMS Spam Collection v.1 is provided for free and with no limitations excepting:
+⏱️  TOTAL EXECUTION TIME: 37.5s
+================================================================================
+```
 
-1. Tiago Agostinho de Almeida and Jos� Mar�a G�mez Hidalgo hold the copyrigth (c) for the SMS Spam Collection v.1.
+## 🔧 Dependencies
 
-2. No Warranty/Use At Your Risk. THE CORPUS IS MADE AT NO CHARGE. ACCORDINGLY, THE CORPUS IS PROVIDED `AS IS,' WITHOUT WARRANTY OF ANY KIND, INCLUDING WITHOUT LIMITATION THE WARRANTIES THAT THEY ARE MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. YOU ARE SOLELY RESPONSIBLE FOR YOUR USE, DISTRIBUTION, MODIFICATION, REPRODUCTION AND PUBLICATION OF THE CORPUS AND ANY DERIVATIVE WORKS THEREOF BY YOU AND ANY OF YOUR SUBLICENSEES (COLLECTIVELY, `YOUR CORPUS USE'). THE ENTIRE RISK AS TO YOUR CORPUS USE IS BORNE BY YOU. YOU AGREE TO INDEMNIFY AND HOLD THE COPYRIGHT HOLDERS, AND THEIR AFFILIATES HARMLESS FROM ANY CLAIMS ARISING FROM OR RELATING TO YOUR CORPUS USE.
+### Required Libraries
 
-3. Limitation of Liability. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR THEIR AFFILIATES, OR THE CORPUS CONTRIBUTING EDITORS, BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL OR ANY AND ALL OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF ADVISED OF THE POSSIBILITY THEREOF, AND REGARDLESS OF WHETHER ANY CLAIM IS BASED UPON ANY CONTRACT, TORT OR OTHER LEGAL OR EQUITABLE THEORY, RELATING OR ARISING FROM THE CORPUS, YOUR CORPUS USE OR THIS LICENSE AGREEMENT.
+| Library | Version | Purpose |
+|---------|---------|---------|
+| `tqdm` | Latest | Progress bars and time estimation |
+| `matplotlib` | Latest | Data visualization |
+| `numpy` | Latest | Numerical computations |
+
+### Installation Commands
+
+```bash
+# Install all dependencies at once
+pip install tqdm matplotlib numpy
+
+# Or install individually
+pip install tqdm
+pip install matplotlib
+pip install numpy
+```
+
+### Python Standard Library
+
+The project uses only Python standard library modules for core functionality:
+- `time` - Timing and performance measurement
+- `random` - Random number generation (with fixed seeds)
+- `collections` - Data structures (Counter, defaultdict)
+- `math` - Mathematical operations
+- `re` - Regular expressions for text processing
+- `os` - File system operations
+
+## 📈 Performance Results
+
+### Model Performance (Typical Results)
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+|-------|----------|-----------|--------|----------|
+| k-NN | 0.9093 | 0.9615 | 0.3356 | 0.4975 |
+| Naive Bayes | 0.9847 | 0.9853 | 0.8993 | 0.9404 |
+
+### Execution Time Breakdown
+
+- **Data Loading**: ~0.0s
+- **Tokenization**: ~0.0s (200K+ messages/second)
+- **Data Splitting**: ~0.0s
+- **Feature Engineering**: ~0.1s
+- **k-NN Training & Prediction**: ~27.6s
+- **Naive Bayes Training & Prediction**: ~0.0s
+- **Visualization**: ~9.7s
+- **Total Time**: ~37.5s
+
+## 🎯 Algorithm Details
+
+### k-Nearest Neighbors (k-NN)
+- **k value**: 5 neighbors
+- **Distance metric**: Euclidean distance
+- **Implementation**: Custom from-scratch implementation
+- **Training**: Lazy learning (stores all training data)
+- **Prediction**: Majority vote among k nearest neighbors
+
+### Multinomial Naive Bayes
+- **Smoothing**: Laplace smoothing (α=1.0)
+- **Implementation**: Custom from-scratch implementation
+- **Features**: TF-IDF weighted word frequencies
+- **Training**: Calculates class priors and word likelihoods
+- **Prediction**: Maximum a posteriori (MAP) estimation
+
+### TF-IDF Vectorization
+- **Term Frequency**: Normalized by document length
+- **Inverse Document Frequency**: log(N/df) where N is total documents
+- **Implementation**: Custom from-scratch implementation
+- **Vocabulary**: Built from training data only
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **ModuleNotFoundError: No module named 'tqdm'**
+   ```bash
+   pip install tqdm
+   ```
+
+2. **FileNotFoundError: SMSSpamCollection**
+   - Ensure the dataset file is in the project root directory
+   - Check file permissions
+
+3. **ImportError: No module named 'sklearn'**
+   - The project is designed to work without sklearn
+   - If you see this error, ensure you're using `utils.text_processing_clean.py`
+
+4. **Memory Issues with Large Datasets**
+   - The current implementation loads all data into memory
+   - For very large datasets, consider implementing batch processing
+
+### Performance Optimization
+
+- **k-NN Speed**: The k-NN implementation is not optimized for speed. For production use, consider:
+  - Using approximate nearest neighbor algorithms
+  - Implementing vectorized distance calculations
+  - Using specialized libraries like FAISS
+
+- **Memory Usage**: For large vocabularies, consider:
+  - Implementing sparse matrix representations
+  - Using feature selection to reduce vocabulary size
+
+## 📚 Technical Implementation
+
+### Data Processing Pipeline
+
+1. **Data Loading**: Reads tab-separated SMS data
+2. **Text Cleaning**: Lowercase conversion, punctuation removal
+3. **Tokenization**: Space-separated word splitting
+4. **Train-Test Split**: Stratified 80/20 split with fixed random seed
+5. **Feature Engineering**: TF-IDF vectorization
+6. **Model Training**: Both algorithms trained on same features
+7. **Evaluation**: Comprehensive metrics calculation
+8. **Visualization**: Three different plot types
+
+### Reproducibility
+
+- **Random Seed**: Fixed at 42 for consistent results
+- **Deterministic Algorithms**: Both k-NN and Naive Bayes are deterministic
+- **Consistent Splits**: Stratified splitting maintains class distribution
+
+## 📄 License
+
+This project is created for educational purposes. The SMS dataset is publicly available and commonly used in machine learning research.
+
+## 🤝 Contributing
+
+This is an academic project, but suggestions for improvements are welcome:
+
+- Algorithm optimizations
+- Additional evaluation metrics
+- Enhanced visualizations
+- Code documentation improvements
+
+## 📞 Support
+
+If you encounter any issues:
+
+1. Check the troubleshooting section above
+2. Verify all dependencies are installed correctly
+3. Ensure the dataset file is present and accessible
+4. Check Python version compatibility (3.7+)
+
+---
