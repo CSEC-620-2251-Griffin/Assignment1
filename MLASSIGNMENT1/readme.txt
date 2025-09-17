@@ -11,13 +11,13 @@ This project classifies SMS messages as either "ham" (legitimate) or "spam" usin
 
 ### Key Features
 
-- ✅ **No Third-Party ML Libraries**: All algorithms implemented from scratch
-- ✅ **Progress Tracking**: Real-time progress bars and time estimation
-- ✅ **Comprehensive Visualizations**: Confusion matrices, metrics comparison, and class distribution
-- ✅ **Reproducible Results**: Fixed random seeds ensure consistent outputs
-- ✅ **Performance Metrics**: Accuracy, Precision, Recall, F1-Score analysis
+-  **No Third-Party ML Libraries**: All algorithms implemented from scratch
+-  **Progress Tracking**: Real-time progress bars and time estimation
+-  **Comprehensive Visualizations**: Confusion matrices, metrics comparison, and class distribution
+-  **Reproducible Results**: Fixed random seeds ensure consistent outputs
+-  **Performance Metrics**: Accuracy, Precision, Recall, F1-Score analysis
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -54,7 +54,7 @@ Simply execute the main script:
 python Assignment1.py
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 MLASSIGNMENT1/
@@ -78,7 +78,7 @@ MLASSIGNMENT1/
     └── class_distribution.png
 ```
 
-## �� Expected Output
+##  Expected Output
 
 The program will display:
 
@@ -150,7 +150,7 @@ The project uses only Python standard library modules for core functionality:
 - `re` - Regular expressions for text processing
 - `os` - File system operations
 
-## 📈 Performance Results
+##  Performance Results
 
 ### Model Performance (Typical Results)
 
@@ -170,7 +170,7 @@ The project uses only Python standard library modules for core functionality:
 - **Visualization**: ~9.7s
 - **Total Time**: ~37.5s
 
-## 🎯 Algorithm Details
+##  Algorithm Details
 
 ### k-Nearest Neighbors (k-NN)
 - **k value**: 5 neighbors
@@ -192,7 +192,7 @@ The project uses only Python standard library modules for core functionality:
 - **Implementation**: Custom from-scratch implementation
 - **Vocabulary**: Built from training data only
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -243,11 +243,8 @@ The project uses only Python standard library modules for core functionality:
 - **Deterministic Algorithms**: Both k-NN and Naive Bayes are deterministic
 - **Consistent Splits**: Stratified splitting maintains class distribution
 
-## 📄 License
 
-This project is created for educational purposes. The SMS dataset is publicly available and commonly used in machine learning research.
-
-## 🤝 Contributing
+## Contributing
 
 This is an academic project, but suggestions for improvements are welcome:
 
@@ -256,7 +253,7 @@ This is an academic project, but suggestions for improvements are welcome:
 - Enhanced visualizations
 - Code documentation improvements
 
-## 📞 Support
+## Support
 
 If you encounter any issues:
 
@@ -266,3 +263,4 @@ If you encounter any issues:
 4. Check Python version compatibility (3.7+)
 
 ---
+
